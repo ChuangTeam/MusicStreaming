@@ -51,13 +51,15 @@ class MainPage:
         self.send_button.grid(row=4, column=4)
         tk.Label(self.root, text='serverIP：').grid(row=0, column=0)
         self.server_field.grid(row=0, column=1)
-        self.server_button.grid(row=1, column=0, columnspan=2)
+        self.server_button.grid(row=1, column=0)
+        self.close_server_button.grid(row=1, column=1)
 
         self.server_field.insert(0, gethostbyname(gethostname()))
 
         tk.Label(self.root, text='ClientIP：').grid(row=2, column=0)
         self.client_field.grid(row=2, column=1)
         self.connet_button.grid(row=3, column=0, columnspan=2)
+        self.close_client_button.grid(row=3, column=1)
 
 
     def mainloop(self):
