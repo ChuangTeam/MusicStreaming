@@ -66,9 +66,6 @@ class MainPage:
         self.server_port_field.place(x=20, y=126, width=130, height=30)
         self.server_button.place(x=20, y=176, width=66, height=30)
         self.close_server_button.place(x=98, y=176, width=50, height=30)
-
-        self.server_field.insert(0, gethostbyname(gethostname()))
-
         tk.Label(self.root, text='Client IP：', anchor="center").place(x=20, y=227, width=66, height=30)
         self.client_field.place(x=19, y=260, width=130, height=30)
         tk.Label(self.root, text='Client Port：', anchor="center").place(x=20, y=304, width=75, height=30)
@@ -76,6 +73,9 @@ class MainPage:
         self.connet_button.place(x=20, y=383, width=66, height=30)
         self.close_client_button.place(x=98, y=383, width=50, height=30)
 
+        # 设置初始值
+        self.server_field.insert(0, gethostbyname(gethostname()))
+        self.server_port_field.insert(0, '7711')
 
     def mainloop(self):
         # 运行主循环
