@@ -1,11 +1,11 @@
 from Page import MainPage
-from server import server
-from client import client
+from server import Server
+from client import Client
 # from socket import gethostname, gethostbyname
 
 if __name__ == '__main__':
-    ser = server()
-    cli = client()
+    ser = Server()
+    cli = Client()
 
     # ip = gethostbyname(gethostname())
 

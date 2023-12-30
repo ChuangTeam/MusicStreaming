@@ -93,7 +93,7 @@ class MainPage:
 
 
     def connectloop(self):
-        self.server.waitNewClient()
+        self.server.wait_new_client()
         if not self.server.client_connect:
             self.root.after(3000, self.connectloop)
 

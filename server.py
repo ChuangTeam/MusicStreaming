@@ -1,7 +1,7 @@
 import socket
 
 
-class server:
+class Server:
     def __init__(self):
 
         # 创建socket
@@ -13,6 +13,7 @@ class server:
         self.conn_que = []  # 客户端套接字队列
 
         self.client_connect = False
+
     def init(self, ip='127.0.0.1', port=7711):
         # 本地信息
         self.address = (ip, port)
@@ -23,7 +24,7 @@ class server:
         self.tcp_server_socket.listen(128)
         print('开启服务端')
 
-    def waitNewClient(self):
+    def wait_new_client(self):
         # 等待新的客户端连接
         print('等待新的客户端连接')
         try:
@@ -44,10 +45,12 @@ class server:
                 return recv_data.decode('gbk')
         except Exception as e:  # 无连接pass继续查询
             pass
+
     def close(self):
         self.tcp_server_socket.close()
         print('server端已关闭')
 
+
 if __name__ == '__main__':
-    ser = server()
+    ser = Server()
     ser.init(ip='192.168.3.181', port=7711)
