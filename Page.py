@@ -36,7 +36,7 @@ class MainPage:
         self.send_button = tk.Button(self.root, text="Send", command=self.send_message)
 
         # 创建开启服务端按钮
-        self.server_button = tk.Button(self.root, text="Enable", takefocus=False)
+        self.server_button = tk.Button(self.root, text="Enable", takefocus=False, command=self.open_server)
         # 创建连接按钮
         self.connet_button = tk.Button(self.root, text="Connect", command=self.connect_server)
 
@@ -82,7 +82,7 @@ class MainPage:
         self.root.mainloop()
 
     def open_server(self):
-        self.server.init(ip=self.server_field.get(), port=self.server_port_field.get())
+        self.server.init(ip=self.server_field.get(), port=int(self.server_port_field.get()))
         self.root.after(3000, self.connectloop)
         # 每隔一段时间模拟接收消息
         self.root.after(3000, self.receive_message)
@@ -92,7 +92,7 @@ class MainPage:
         self.root.after(3000, self.connectloop)
 
     def connect_server(self):
-        self.client.connect(ip=self.client_field.get(), port=self.client_port_field.get())
+        self.client.connect(ip=self.client_field.get(), port=int(self.client_port_field.get()))
 
     def send_message(self):
         msg = self.entry_field.get('0.0', 'end')
