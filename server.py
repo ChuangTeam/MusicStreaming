@@ -13,7 +13,7 @@ class server:
         self.conn_que = []  # 客户端套接字队列
 
         self.client_connect = False
-    def init(self, ip='127.0.0.1', port=7788):
+    def init(self, ip='127.0.0.1', port=7711):
         # 本地信息
         self.address = (ip, port)
 
@@ -50,4 +50,4 @@ class server:
 
 if __name__ == '__main__':
     ser = server()
-    ser.init(ip='192.168.3.181', port=7788)
+    ser.init(ip='192.168.3.181', port=7711)
