@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Python39ForMediapipe" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python39ForMediapipe" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="WebFrame" project-jdk-type="Python SDK" />
 </project>
