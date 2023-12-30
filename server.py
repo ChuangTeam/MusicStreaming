@@ -11,6 +11,8 @@ class server:
         self.tcp_server_socket.settimeout(0.0)
 
         self.conn_que = []  # 客户端套接字队列
+
+        self.client_connect = False
     def init(self, ip='127.0.0.1', port=7788):
         # 本地信息
         self.address = (ip, port)
@@ -27,6 +29,7 @@ class server:
         try:
             self.client_socket, self.clientAddr = self.tcp_server_socket.accept()
             print(f'连接到{self.clientAddr[0]}')
+            self.client_connect = True
             self.clientAddr.setblocking(False)
             self.conn_que.append(self.clientAddr)
         except Exception as e:  # 无连接pass继续查询

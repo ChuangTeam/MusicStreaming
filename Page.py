@@ -41,10 +41,10 @@ class MainPage:
         self.connet_button = tk.Button(self.root, text="Connect", command=self.connect_server)
 
         # 创建关闭服务端按钮
-        self.close_server_button = tk.Button(self.root, text="Close", command=self.server.close)
+        self.close_server_button = tk.Button(self.root, text="Close", command=self.close_server)
 
-        # 创建连接按钮
-        self.close_client_button = tk.Button(self.root, text="Close", command=self.client.close)
+        # 创建关闭连接按钮
+        self.close_client_button = tk.Button(self.root, text="Close", command=self.close_connect)
 
         # 创建服务端ip地址
         self.server_field = tk.Entry(self.root, bd=1)
@@ -87,12 +87,22 @@ class MainPage:
         # 每隔一段时间模拟接收消息
         self.root.after(3000, self.receive_message)
 
+    def close_server(self):
+        self.server.close()
+        self.server.client_connect = False
+
+
     def connectloop(self):
         self.server.waitNewClient()
-        self.root.after(3000, self.connectloop)
+        if not self.server.client_connect:
+            self.root.after(3000, self.connectloop)
 
     def connect_server(self):
         self.client.connect(ip=self.client_field.get(), port=int(self.client_port_field.get()))
+
+    def close_connect(self):
+        self.client.close()
+
 
     def send_message(self):
         msg = self.entry_field.get('0.0', 'end')
